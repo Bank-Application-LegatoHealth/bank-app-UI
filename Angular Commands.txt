@@ -1,0 +1,21 @@
+1. ng new <project_name>
+2.  Adding bootstrap and jquery
+	npm install bootstrap jquery --save
+3. Add bootstrap lib to style.css
+    @import '~bootstrap/dist/css/bootstrap.css';
+4. import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+	import { HttpClientModule } from '@angular/common/http';
+	import { Routes,RouterModule } from '@angular/router';
+	
+5. ng g c <component-name>
+6. ng g s <service-name>
+7.app.module.ts -
+
+imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot(routeConfig)
+  ]
