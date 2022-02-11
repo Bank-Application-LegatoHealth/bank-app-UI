@@ -36,6 +36,7 @@ let routeConfig: Routes = [
     InvestorsComponent,
     FooterComponent,
     HeaderComponent
+    
   ],
   imports: [
     BrowserModule,

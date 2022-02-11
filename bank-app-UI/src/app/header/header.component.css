@@ -2,6 +2,17 @@
     font-weight: bold;
     
 }
+.nav-bar-contnet{
+ color: #000000;
+}
+
+
 a {
     color: black;
   }
+
+  .navbar-center {    
+              position: absolute;  
+                        left: 70%;  
+    
+                        transform: translatex(-50%);        }
