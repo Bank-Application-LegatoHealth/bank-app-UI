@@ -11,5 +11,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  data = [
+    { img: "assets/images/FD-banners-v4-d.gif", title: "" },
+    { img: "assets/images/cc-something-fr-everyone-d.jpg", title: "" },
+    { img: "assets/images/non-festive-pahl-pre-approved-d.jpg", title: "" },
+    { img: "assets/images/pay-flexible-way-d.jpg", title: "" }
+  ];
 
 }

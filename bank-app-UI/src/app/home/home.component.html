@@ -1,0 +1,51 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <!-- ngfor loop using get dynamic value and ngclass for add acive class -->
+    <div class="carousel-item" *ngFor="let result of data; let i = index" [ngClass]="{'active': i === 1}">
+      <img style="height: 380px; width: 1700px;" src={{result.img}} title={{result.title}} />
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="row mt-4" style="margin-left: 40px;">
+
+  <div class="card col-3" style="width: 28rem;">
+    <img src="assets/images/personalloan.jpg" class="card-img-top roundimg" alt="">
+    <div class="card-body">
+      <h5 class="card-title card-header">PERSONAL LOAN</h5>
+      <p class="card-text card-data">Apply for a personal loan online to pay off debt, consolidate debt, or finance purchases. If
+        you’re dealing with debt, here are personal loan options you should consider. Calculate Loan Options. Compare By
+        Credit Score. Build Your Credit Score. Get Fixed Payments.</p>
+
+    </div>
+  </div>
+  <div class="card col-3" style="margin-left: 30px;width: 28rem;">
+    <img src="assets/images/homeloan.jpg" class="card-img-top roundimg" alt="" height="235px">
+    <div class="card-body">
+      <h5 class="card-title  card-header">HOME LOAN</h5>
+      <p class="card-text card-data">Build the house you have been thinking of. Buy the car of your dreams. Take that long-pending
+        vacation. Get your children enrolled in the top schools. Do all this and more with loans from ICICI Bank. We
+        offer a wide variety of loans to suit each one of your requirements. </p>
+
+    </div>
+  </div>
+  <div class="card col-3" style="margin-left: 30px;width: 28rem;">
+    <img src="assets/images/financeloan.jpg" class="card-img-top roundimg" alt="">
+    <div class="card-body ">
+      <h5 class="card-title card-header">FINANCE LOAN</h5>
+      <p class="card-text card-data">Every business is different. As your operations evolve and grow more complex, so do your
+        corporate finance needs. That’s why our fully customised and highly innovative solutions are designed with your
+        business in mind, not the other way around.</p>
+
+    </div>
+  </div>
+
+</div>
