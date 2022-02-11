@@ -7,44 +7,31 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { Routes,RouterModule } from '@angular/router';
-import { HomeComponentComponent } from './home-component/home-component.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
 import { InvestorsComponent } from './investors/investors.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AdsComponent } from './ads/ads.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { AccountDetailsComponent } from './account-details/account-details.component';
-import { TransferComponent } from './transfer/transfer.component';
-import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
 
 let routeConfig: Routes = [
-{path : '' , component :},
-{path : '' , component :},
-{path : '' , component :},
-{path : '' , component :},
-{path : '' , component :},
-{path : '' , component :},
-
-
+{path : '' , component : HomeComponent},
+{path : 'aboutUs' , component : AboutUsComponent},
+{path : 'investors' , component : InvestorsComponent},
+{path : 'contactUs' , component : ContactUsComponent},
+{path : 'ads' , component : AdsComponent},
+{path : 'login' , component : LogInComponent}
 ]
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponentComponent,
     HomeComponent,
     AboutUsComponent,
     ContactUsComponent,
-    InvestorsComponent,
     AdsComponent,
     LogInComponent,
-    AccountDetailsComponent,
-    TransferComponent,
-    TransactionDetailsComponent,
-    ChangePasswordComponent
+    InvestorsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +39,7 @@ let routeConfig: Routes = [
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
