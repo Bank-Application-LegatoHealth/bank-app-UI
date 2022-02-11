@@ -13,6 +13,8 @@ import { InvestorsComponent } from './investors/investors.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AdsComponent } from './ads/ads.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 let routeConfig: Routes = [
 {path : '' , component : HomeComponent},
@@ -31,7 +33,9 @@ let routeConfig: Routes = [
     ContactUsComponent,
     AdsComponent,
     LogInComponent,
-    InvestorsComponent
+    InvestorsComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +43,12 @@ let routeConfig: Routes = [
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
