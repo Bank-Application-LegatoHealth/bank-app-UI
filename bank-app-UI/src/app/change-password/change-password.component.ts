@@ -10,6 +10,8 @@ export class ChangePasswordComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
+    beforeLoggedInHeader.style.display = "none";
   }
 
 }
