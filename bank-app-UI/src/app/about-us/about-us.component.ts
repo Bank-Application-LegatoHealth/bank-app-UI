@@ -9,6 +9,8 @@ export class AboutUsComponent implements OnInit {
 
   constructor() { }
   ngOnInit(): void {
+    let afterLoggedInHeader = <HTMLInputElement>document.getElementById("after-login-header");
+    afterLoggedInHeader.style.display = "none";
   }
   
 }

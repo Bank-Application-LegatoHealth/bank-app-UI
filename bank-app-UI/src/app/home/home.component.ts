@@ -10,6 +10,9 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let afterLoggedInHeader = <HTMLInputElement>document.getElementById("after-login-header");
+    afterLoggedInHeader.style.display = "none";
+
   }
   data = [
     { img: "assets/images/FD-banners-v4-d.gif", title: "" },
