@@ -50,8 +50,20 @@ export class AccountDetailsComponent implements OnInit {
     console.log(this.route);
     console.log("data clicked")
    // this.router.navigate(["transDetails"]);
-    this.router.navigate(['getInfo/transDetails']);
+    this.router.navigate(['transDetails']);
     
+  }
+
+  getInfo(){
+    this.router.navigate(["getInfo"])
+  }
+
+  transfer(){
+    this.router.navigate(["transfer"])
+  }
+
+  changePassword(){
+    this.router.navigate(["changePassword"])
   }
 
 
