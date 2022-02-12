@@ -1,1 +1,78 @@
-<p>transaction-details works!</p>
+<div class="row">
+    <div class="card col-3">
+        <div class="card-body">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td class="table-head" style="font-weight:900" >SERVICES</td>
+                    </tr>
+                    <tr>
+                        <td class="table-body" ><a  (click)="transactionClicked()">Transaction Details</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="transfer()">Transfer Money</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="changePassword()">Change Password</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="getInfo()">Account Info</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card col-3">
+            <div class="card-body">
+                <p>Seema</p>
+                    <!-- <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td class="table-head" style="font-weight:900">TRANSACTION DETAILS</td>
+                            </tr>
+                            <tr>
+                                <td class="table-body">
+                                    <input id="transDate" type="radio" value="transDate" name="radiogroup"
+                                        formControlName="radiogroup">
+                                    <label for="from">Transaction Date From</label>
+                                </td>
+                                <td class="table-body">
+                                    <input id="transFromDate" type="date" value="transFromDate" name="Date"
+                                        formControlName="fromDate" >
+                                    <label for="to">To</label>
+                                    <input id="transToDate" type="date" value="transToDate" name="Date"
+                                        formControlName="toDate">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-body">
+                                    <input type="radio" name="radiogroup" formControlName="radiogroup"> Transactions Type
+                                    <select (change)="changeTransType($event)" formControlName="transType" class="form-control">
+                                        <option value="" disabled>Select Transaction Type</option>
+                                        <option *ngFor="let tType of transactionType" [ngValue]="tType">
+                                            {{tType}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-body">
+                                    <input type="radio" name="radiogroup" formControlName="radiogroup" checked> Show All
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-body">
+                                    <input class="btn" style="padding-left:25px;padding-right:25px"
+                                         type="submit" value="View Statement">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                
+            </div>
+        </div>
+        </div>
+        </div>
+
