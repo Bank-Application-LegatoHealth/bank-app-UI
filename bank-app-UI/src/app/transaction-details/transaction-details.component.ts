@@ -3,7 +3,6 @@ import { FormBuilder, Validators,FormsModule , ReactiveFormsModule } from "@angu
 import { Router } from '@angular/router';
 import {CommonModule} from '@angular/common';
 import { BankService } from '../bank.service';
-import Transaction from '../models/Transaction';
 
 @Component({
   selector: 'app-transaction-details',
