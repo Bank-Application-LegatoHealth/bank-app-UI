@@ -21,6 +21,7 @@ import { BankGuard } from './bank.guard';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { TransactionModel } from './transaction/transaction.model';
 
 let routeConfig: Routes = [
   { path: '', component: HomeComponent },
@@ -51,7 +52,8 @@ let routeConfig: Routes = [
     TransactionDetailsComponent,
     TransferComponent,
     ChangePasswordComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    TransactionModel
   ],
   imports: [
     BrowserModule,
