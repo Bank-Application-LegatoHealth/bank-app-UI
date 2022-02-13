@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,8 +47,11 @@ let routeConfig: Routes = [
     LogInComponent,
     InvestorsComponent,
     FooterComponent,
-    HeaderComponent
-
+    HeaderComponent,
+    TransactionDetailsComponent,
+    TransferComponent,
+    ChangePasswordComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ let routeConfig: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routeConfig),
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
