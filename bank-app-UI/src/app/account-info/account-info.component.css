@@ -23,6 +23,7 @@
 
   .table-head{
       font-weight: bolder;
+      font-size:xx-large;
       padding: 10px;
       font-family:Verdana, Tahoma, sans-serif
   }
@@ -41,3 +42,12 @@
   font-weight: 500;
   font-family:Verdana, Tahoma, sans-serif
  }
+
+ .card-body{
+  font-weight:22px;
+  font-weight:bold;
+  color : #f16c1f;
+  font-family:Verdana, Tahoma, sans-serif
+ }
+
+ 

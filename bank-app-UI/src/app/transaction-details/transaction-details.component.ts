@@ -17,10 +17,10 @@ export class TransactionDetailsComponent implements OnInit {
 
   }
 
+  accountNameOnLogin:any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "none";
-
   }
   transaction = this._builder.group({
     transShow: ['', []],
@@ -199,18 +199,26 @@ export class TransactionDetailsComponent implements OnInit {
   }
 
   transactionClicked() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this._router.navigate(["transDetails"])
   }
 
   getInfo() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this._router.navigate(["getInfo"])
   }
 
   transfer() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this._router.navigate(["transfer"])
   }
 
   changePassword() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this._router.navigate(["changePassword"])
   }
 }

@@ -103,7 +103,7 @@ input {
   background: #f16c1f;
   margin-top: 30px;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 18px;
   transition: all 0.3s linear;
 }
 
@@ -141,7 +141,7 @@ input {
     font-size: 1.5em;
   }
 
-  .table-body{
+  /* .table-body{
       color : #f16c1f;
       font-weight: 700;
       padding-top: 15px;
@@ -152,8 +152,23 @@ input {
       font-weight: bolder;
       padding: 10px;
       font-family:Verdana, Tahoma, sans-serif
-  }
+  } */
  
+  .table-body{
+    color : #f16c1f;
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 15px;
+    font-family:Verdana, Tahoma, sans-serif
+}
+
+.table-head{
+    
+    font-size: 22px;
+    font-weight: bolder;
+    padding: 10px;
+    font-family:Verdana, Tahoma, sans-serif
+}
   .card-account{
     width: 52rem;
 
@@ -281,3 +296,7 @@ td {
   z-index: 10000;
 }
 
+.card-body{
+  font-weight:22px;font-weight:bolder;color : #f16c1f;font-family:Verdana, Tahoma, sans-serif;
+  padding:0;
+ }

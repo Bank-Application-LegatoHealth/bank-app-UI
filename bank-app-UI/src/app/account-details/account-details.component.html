@@ -1,10 +1,16 @@
 <div class="row">
+    <p class="accName">
+        Hi &nbsp;{{accountNameOnLogin}}
+    </p>
+</div>
+
+<div class="row">
     <div class="card col-3">
         <div class="card-body">
             <table class="table table-hover">
                 <tbody>
                     <tr>
-                        <td class="table-head" style="font-weight:900">SERVICES</td>
+                        <td class="table-head">SERVICES</td>
                     </tr>
                     <tr>
                         <td class="table-body"><a (click)="transactionClicked()">Transaction Details</a></td>
@@ -44,10 +50,10 @@
                     </tr>
                     <tr>
                         <td class="text-start table-data-style" style="font-size: 30px;font-weight: bold;"> &#x20b9;
-                            {{accountBalance}}.00</td>
+                            {{accountBalance}}</td>
                         <td class=" border-end"></td>
                         <td class="text-start table-data-style" style="font-size: 30px;font-weight: bold;"> &#x20b9;
-                            {{accountNumber}}.00</td>
+                            {{accountNumber}}</td>
                         <td></td>
                     </tr>
                     <tr>
