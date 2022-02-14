@@ -49,15 +49,14 @@ export class ChangePasswordComponent implements OnInit {
 
   password = this._builder.group({
     passwordtype : [''],
-    oldpassword : ['',Validators.required],
+    oldpassword : ['',Validators.required, Validators.nullValidator],
     newpassword : ['',Validators.compose([Validators.required,
       Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}')
       ])],
-    confirmpassword : ['',Validators.pattern('newpassword')]
+    confirmpassword : ['',Validators.compose([Validators.required,
+      Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}')
+      ])]
   })
-  // passwordType = this._builder.group({
-  //   changePassword : ['']
-  // })
 
   changePasswordAPIResponse : any = undefined
   err : any  = undefined
