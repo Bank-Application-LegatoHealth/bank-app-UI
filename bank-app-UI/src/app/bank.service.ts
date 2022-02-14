@@ -24,9 +24,11 @@ getTransactionDetails(transactionRequestBody : any){
   return this._client.post(url,transactionRequestBody);
 }
 
-downloadExcel(transactionRequestBody :any){
+downloadExcel(transactionRequestBody :Blob){
   let url = `${this.baseUrl}/customers/excel`
-  return this._client.post(url,transactionRequestBody);
+  return this._client.post(url,transactionRequestBody,{
+    responseType: 'blob'
+  });
 }
 
 changePassword(passwordRequestBody : any){
