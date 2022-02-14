@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { Routes,RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { InvestorsComponent } from './investors/investors.component';
@@ -20,18 +21,25 @@ import { BankGuard } from './bank.guard';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AccountInfoModel } from './account-info-model';
+import { AccountInfoComponent } from './account-info/account-info.component';
+import { UnauthorizedUserComponent } from './unauthorized-user/unauthorized-user.component';
+
 
 let routeConfig: Routes = [
-{path : '' , component : HomeComponent},
-{path : 'aboutUs' , component : AboutUsComponent},
-{path : 'investors' , component : InvestorsComponent},
-{path : 'contactUs' , component : ContactUsComponent},
-{path : 'ads' , component : AdsComponent},
-{path : 'login' , component : LogInComponent},
-{path : 'getInfo' , component : AccountDetailsComponent, canActivate :[BankGuard], children :[
-  {path : 'transDetails', component : TransactionDetailsComponent},{path :'transfer', component : TransferComponent},
-  {path :'changePassword' ,component : ChangePasswordComponent}
-  ]},
+  { path: '', component: HomeComponent },
+  { path: 'aboutUs', component: AboutUsComponent },
+  { path: 'investors', component: InvestorsComponent },
+  { path: 'contactUs', component: ContactUsComponent },
+  { path: 'ads', component: AdsComponent },
+  { path: 'login', component: LogInComponent },
+  { path: 'getInfo', component: AccountDetailsComponent },
+  { path: 'transDetails', component: TransactionDetailsComponent }, 
+  { path: 'transfer', component: TransferComponent },
+  { path: 'changePassword', component: ChangePasswordComponent },
+  { path: 'accountInfo', component: AccountInfoComponent },
+  { path: 'unAuthUser', component: UnauthorizedUserComponent }
+
 
 ]
 
@@ -46,7 +54,12 @@ let routeConfig: Routes = [
     InvestorsComponent,
     FooterComponent,
     HeaderComponent,
-    TransferComponent
+    TransactionDetailsComponent,
+    TransferComponent,
+    ChangePasswordComponent,
+    AccountDetailsComponent,
+    AccountInfoComponent,
+    UnauthorizedUserComponent
     
   ],
   imports: [
@@ -56,6 +69,7 @@ let routeConfig: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routeConfig),
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

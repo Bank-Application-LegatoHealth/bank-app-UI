@@ -1,74 +1,124 @@
-
-<!-- icons  -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-
-<body>
-  <div class=" flex-r container">
-    <div class="flex-r login-wrapper">
-      <div class="login-text">
-          <div style="display: flex;justify-content: center;">
-            <img height="65px" width="110px" src="assets/images/bank-logo.png" />
-        </div>
-        <form [formGroup]= "transferBody" (ngSubmit) ="transferSubmit()" class="flex-c" >
-          <h3>Money Transfer</h3>
-          <div class="input-box">
-            <span class="label">Account No.</span>
-            <div class=" flex-r input">
-              <input type="number" formControlName="detAccNo" placeholder="Enter Customer Account No">
-            </div>
-            <div class = "alert alert-danger" [hidden]="transferBody.controls['detAccNo'].valid || transferBody.controls['detAccNo'].pristine" >
-                Enter Customer Account No
-            </div>
-          </div>
-          <div class="input-box">
-            <span class="label">Customer Name</span>
-            <div class=" flex-r input">
-              <input type="text" formControlName="custName" placeholder="Enter Customer Name">
-            </div>
-            <div class = "alert alert-danger" [hidden]="transferBody.controls['custName'].valid || transferBody.controls['custName'].pristine" >
-                Enter Customer Name
-            </div>
-          </div>
-          <div class="input-box">
-            <span class="label">IFSC CODE</span>
-            <div class=" flex-r input">
-              <input type="text" formControlName="ifsc" placeholder="Enter IFSC Code">
-            </div>
-            <div class = "alert alert-danger" [hidden]="transferBody.controls['ifsc'].valid || transferBody.controls['ifsc'].pristine" >
-                Enter IFSC Code
-            </div>
-          </div>
-          <div class="input-box">
-            <span class="label">Amount</span>
-            <div class=" flex-r input">
-              <input type="number" formControlName="amount" placeholder="Enter Amount">
-            </div>
-            <div class = "alert alert-danger" [hidden]="transferBody.controls['amount'].valid || transferBody.controls['amount'].pristine" >
-                Enter Amount
-            </div>
-          </div>
-
-          <div class="input-box">
-            <span class="label">Transaction Password</span>
-            <div class="flex-r input">
-              <input type="password" formControlName="transPass"  placeholder="Enter your login passsword" >
-            </div>
-            <div class = "alert alert-danger" [hidden]="transferBody.controls['transPass'].valid || transferBody.controls['transPass'].pristine" >
-                Transaction Password must be min 8 and include 1 special character,1 number,1 capital letter
-            </div>
-          </div>
-          <div *ngIf ="err" class ="text-danger">
-            {{err.error.message}}
-          </div>
-          <div *ngIf ="transferResponse" class ="text-danger">
-            {{transferResponse.message}}
-          </div>
-          <div  class="button-center"style="display:flex;">
-            <input class="btn" 
-            style="padding-left:25px;padding-right:25px" [disabled] = "transferBody.invalid" type="submit" value="Transfer">
-        </div>
-        </form>
-      </div>
+<div class="row">
+  <div class="card col-3">
+    <div class="card-body">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td class="table-head" style="font-weight:900">SERVICES</td>
+          </tr>
+          <tr>
+            <td class="table-body"><a (click)="transactionClicked()">Transaction Details</a></td>
+          </tr>
+          <tr>
+            <td class="table-body"><a (click)="transfer()">Transfer Money</a></td>
+          </tr>
+          <tr>
+            <td class="table-body"><a (click)="changePassword()">Change Password</a></td>
+          </tr>
+          <tr>
+            <td class="table-body"><a (click)="getInfo()">Account Info</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-</body>
+
+
+  <div style="width:70rem" class="card">
+    <div class="card-body">
+      <div class="row" style=" padding:0">
+        <div class="col-12" style=" padding:0">
+          <h3 style=" padding:0">Money Transfer</h3>
+        </div>
+      </div>
+      <hr style="border: 1px solid red;margin-bottom: 20px; padding:0">
+
+      <form [formGroup]="transferBody" (ngSubmit)="transferSubmit()" class="flex-c">
+        <div class="input-box">
+          <span class="label">Account No.</span>
+          <div class=" flex-r input">
+            <input type="text" formControlName="detAccNo" placeholder="Enter Account No" onfocus="refresh()">
+          </div>
+          <div class="alert alert-danger"
+            [hidden]="transferBody.controls['detAccNo'].valid || transferBody.controls['detAccNo'].pristine">
+            Enter Customer Account No
+          </div>
+        </div>
+        <div class="input-box">
+          <span class="label">Customer Name</span>
+          <div class=" flex-r input">
+            <input type="text" formControlName="custName" placeholder="Enter Customer Name">
+          </div>
+          <div class="alert alert-danger"
+            [hidden]="transferBody.controls['custName'].valid || transferBody.controls['custName'].pristine">
+            Enter Customer Name
+          </div>
+        </div>
+        <div class="input-box">
+          <span class="label">IFSC CODE</span>
+          <div class=" flex-r input">
+            <input type="text" formControlName="ifsc" placeholder="Enter IFSC Code">
+          </div>
+          <div class="alert alert-danger"
+            [hidden]="transferBody.controls['ifsc'].valid || transferBody.controls['ifsc'].pristine">
+            Enter IFSC Code
+          </div>
+        </div>
+        <div class="input-box">
+          <span class="label">Amount</span>
+          <div class=" flex-r input">
+            <input type="text" formControlName="amount" placeholder="Enter Amount">
+          </div>
+          <div class="alert alert-danger"
+            [hidden]="transferBody.controls['amount'].valid || transferBody.controls['amount'].pristine">
+            Enter Amount
+          </div>
+        </div>
+
+
+        <div class="input-box" (click)="transferClick()" *ngIf="hideBtn">
+          <div class="button-center" style="display:flex;">
+            <input class="btn" style="padding-left:25px;padding-right:25px" [disabled]="transferBody.invalid"
+              type="button" value="Submit Details">
+          </div>
+        </div>
+        <div class="input-box" *ngIf="hideEle">
+          <span class="label">Transaction Password</span>
+          <div class="flex-r input">
+            <input type="password" formControlName="transPass" placeholder="Enter Txn Passsword">
+          </div>
+          <div class="alert alert-danger"
+            [hidden]="transferBody.controls['transPass'].valid || transferBody.controls['transPass'].pristine">
+            Transaction Password must be min 8 and include 1 special character,1 number,1 capital letter
+          </div>
+        </div>
+
+        <div class="overlay" *ngIf="err" [hidden]="isShow">
+          <div class="popup">
+            <p>{{err.error.message}}</p>
+            <div class="text-right">
+              <button class="btn btn-primary" id="closeBtn" (click)="onFailure()">Ok</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="overlay" *ngIf="transferResponse" [hidden]="isShow">
+          <div class="popup">
+            <p>{{transferResponse.message}}</p>
+            <div class="text-right">
+              <button class="btn btn-primary" id="closeBtn" (click)="onSuccess()">Ok</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="input-box" *ngIf="hideEle">
+          <div class="button-center" style="display:flex;">
+            <input class="btn" style="padding-left:25px;padding-right:25px" [disabled]="transferBody.invalid"
+              type="submit" value="Transfer">
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>

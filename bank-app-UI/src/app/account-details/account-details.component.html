@@ -1,14 +1,80 @@
 <div class="row">
-     <!-- <app-service-menu></app-service-menu> -->
+    <div class="card col-3">
+        <div class="card-body">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td class="table-head" style="font-weight:900">SERVICES</td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="transactionClicked()">Transaction Details</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="transfer()">Transfer Money</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="changePassword()">Change Password</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="getInfo()">Account Info</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div style="width:70rem" class="card">
         <div class="card-body">
+            <table class="table table-borderless" style="table-layout: fixed;
+          ">
+                <tbody>
+                    <tr>
+                        <td class="text-start table-lable-style " style="font-size: 22px;">Total Balence
+
+                        </td>
+                        <td class="text-start  border-end"><label class="switch">
+                                <input (click)="showBalanceClicked()" type="checkbox">
+                                <span class="slider round"></span>
+                            </label></td>
+
+                        <td class="text-start table-lable-style" style="font-size: 21px;">Account Number</td>
+                        <td class="text-start  "><label class="switch" style=" left: 95%;  ">
+                                <input (click)="showAccountClicked()" type="checkbox" id="balance">
+                                <span class="slider round"></span>
+                            </label></td>
+                    </tr>
+                    <tr>
+                        <td class="text-start table-data-style" style="font-size: 30px;font-weight: bold;"> &#x20b9;
+                            {{accountBalance}}.00</td>
+                        <td class=" border-end"></td>
+                        <td class="text-start table-data-style" style="font-size: 30px;font-weight: bold;"> &#x20b9;
+                            {{accountNumber}}.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="border-end"></td>
+                        <td class="text-start table-lable-style" colspan="2"
+                            style="font-size: 17px; text-transform: lowercase;text-transform: capitalize;margin-right: 30px;">
+                            {{accountInfoModel.type}} ACCOUNT <button class="btn" (click)="goToAccountDetails()"
+                                style="padding-left: 20px;  margin-left:32px;font-size:15px;font-weight: 600; color:#ffffff;background-color: #f16c1f;">View
+                                Account
+                                Information</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-6">
+
+                </div>
+            </div>
+            <!-- 
             <div class="row" style=" padding:0">
                 <div class="col-12" style=" padding:0">
                     <h5 style=" padding:0">ACCOUNT DETAILS</h5>
                 </div>
             </div>
             <hr style="border: 1px solid red;margin-bottom: 20px; padding:0">
-
             <div>
                 <div class="row">
                     <table class="table table-borderless">
@@ -25,7 +91,7 @@
                                 <td class="text-start table-lable-style" style="padding-left: 0px;">
                                     Show Balence</td>
                                 <label class="switch">
-                                    <input type="checkbox" checked id="showbalance">
+                                    <input (click)="showBalence()" type="checkbox" checked>
                                     <span class="slider round"></span>
                                 </label>
                             </tr>
@@ -51,7 +117,7 @@
 
                     </table>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </div>

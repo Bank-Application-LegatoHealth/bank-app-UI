@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="card col-3">
+        <div class="card-body">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td class="table-head" style="font-weight:900">SERVICES</td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="transactionClicked()">Transaction Details</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="transfer()">Transfer Money</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="changePassword()">Change Password</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-body"><a (click)="getInfo()">Account Info</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="width:70rem" class="card">
+        <div class="card-body">
+            <h2> PERSONAL INFORMATION</h2>
+            <hr>
+            <table class="table table-borderless table-fixed">
+                <tbody>
+                    <tr>
+                        <td class="text-start table-lable-style" colspan="2">Customer Name: <p class="table-data-style"
+                                style=" display: inline-block;"> {{accountInfo.custName}}</p>
+                        </td>
+                        <td class="text-start table-lable-style" style="padding: 0;" colspan="2"> Bank Name: <p class="table-data-style"
+                                style=" display: inline-block;"> {{accountInfo.bankName}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-start table-lable-style"  colspan="2">Customer ID: <p class="table-data-style"
+                                style=" display: inline-block;"> {{custId}}</p>
+                        </td>
+
+                        <td class="text-start table-lable-style"  style="padding: 0;" colspan="2">Bank Ifsc:<p class="table-data-style"
+                                style=" display: inline-block;"> {{accountInfo.bankIfsc}}</p>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="text-start table-lable-style" colspan="2">Transfer Limit: <p class="table-data-style"
+                                style=" display: inline-block;"> {{accountInfo.transferLimit}}</p>
+                        </td>
+                        <td class="text-start table-lable-style"  style="padding: 0;" colspan="2">Bank Address:<p class="table-data-style"
+                            style=" display: inline-block;"> {{accountInfo.bankAdress}}</p>
+                    </td>
+                        <!-- <td class="text-start table-lable-style"  style="padding-right: 30px;" colspan="2">Bank Address::<p class="table-data-style"
+                                style=" display: inline-block;"> {{accountInfo.bankAdress}}</p>
+                        </td> -->
+
+                    </tr>
+
+                    <tr>
+                        <td class="text-start table-lable-style" colspan="2">Min Balance:<p class="table-data-style"
+                                style=" display: inline-block;"> {{accountInfo.minBalance}}</p>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>

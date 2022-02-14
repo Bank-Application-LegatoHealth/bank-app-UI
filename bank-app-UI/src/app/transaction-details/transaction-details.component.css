@@ -1,0 +1,145 @@
+.card {
+    width: 20rem;
+
+    margin-top: 1em;
+    margin-left: 2em;
+    /* padding: 0.5em 0.5em 0.5em; */
+    border-radius: 1em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+ 
+  .card .card-title {
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
+  .table-body{
+      color : #f16c1f;
+      font-weight: 700;
+      padding-top: 15px;
+      font-family:Verdana, Tahoma, sans-serif
+  }
+
+  .table-head{
+      font-weight: bolder;
+      padding: 10px;
+      font-family:Verdana, Tahoma, sans-serif
+  }
+ 
+  .card-account{
+    width: 52rem;
+
+    margin-top: 1em;
+    margin-left: 2em;
+    /* padding: 0.5em 0.5em 0.5em; */
+    border-radius: 1em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-account-info{
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
+/* Toggle button css */
+.switch {
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  position: absolute;  
+  margin-bottom: 100px;
+  margin-top: 24px;
+   left: 97%;  
+   transform: translatex(-50%);
+
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 21px;
+  width: 23px;
+  left: -0.6px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #f16c1f;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #f16c1f;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+/* outer box */
+.slider.round {
+  border-radius: 22px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+  
+
+td {
+  width: 150px;
+  text-align: center;
+  padding: 30px;
+}
+.table-lable-style{
+    font-size: 10pt;
+    color: #f16c1f;
+    font-weight: bold;
+    font-family:Verdana, Tahoma, sans-serif
+}
+.table-data-style{
+  font-size: 10pt;
+    color: #000000;
+    font-weight: lighter;
+}
+
+
+.transButton {
+  width: 50%;
+                height: 40px;
+                margin: auto;
+                display: block;
+                color: #fff;
+                background-color: #f16c1f;
+                border-color: #f16c1f;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+                box-shadow: 0 2px 0 rgba(0, 0, 0, 0.035);
+                border-radius: 4px;
+                font-size: 14px;
+                cursor: pointer;
+}
