@@ -50,8 +50,8 @@
   height: 25px;
   position: absolute;  
   margin-bottom: 100px;
-  margin-top: 24px;
-   left: 97%;  
+
+   left: 47%;  
    transform: translatex(-50%);
 
 }
@@ -87,7 +87,7 @@
 }
 
 input:checked + .slider {
-  background-color: #f16c1f;
+  background-color: #eb7226;
 }
 
 input:focus + .slider {
@@ -98,6 +98,7 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+ 
 }
 
 /* Rounded sliders */
@@ -127,3 +128,4 @@ td {
     color: #000000;
     font-weight: lighter;
 }
+
