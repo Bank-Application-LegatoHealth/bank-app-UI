@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BankService } from '../bank.service';
 
 @Component({
@@ -9,21 +10,32 @@ import { BankService } from '../bank.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private service: BankService, private client: HttpClient) { }
-
+  constructor(private service: BankService, private client: HttpClient,private router : Router) { }
+  
   ngOnInit(): void {
-    this.getAccountInfo();
+
+    
+    // let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
+    // beforeLoggedInHeader.value
+    // console.log(beforeLoggedInHeader)
+    // if(sessionStorage.getItem("custName")==null){
+    //   this.reloadComponent();
+    // // console.log(sessionStorage.getItem("custName"))
+    // // this.custNameOnLogin = sessionStorage.getItem("custName")
+    // }
+    //this.getAccountInfo();
+    
   }
 
   custId = sessionStorage.getItem("custId");
   accountInfo:any;
   err:any;
   getAccountInfo() {
+
     this.custId = sessionStorage.getItem("custId")
     this.service.getAccountDetails(sessionStorage.getItem("custId")).subscribe(
       (response: any) => {
         this.accountInfo = response;
-     
       }, err => {
         this.err = err;
       }
@@ -32,4 +44,11 @@ export class HeaderComponent implements OnInit {
   clearSessions(){
     sessionStorage.clear()
   }
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+    }
 }

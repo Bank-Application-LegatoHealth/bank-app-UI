@@ -13,9 +13,11 @@ export class LogInComponent implements OnInit {
   constructor(private _router : Router ,private _builder :FormBuilder,private service :BankService ){
 
   }
+  custNameOnLogin : any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "block";
+    
     let afterLoggedInHeader = <HTMLInputElement>document.getElementById("after-login-header");
     afterLoggedInHeader.style.display = "none";
   }
@@ -44,13 +46,32 @@ export class LogInComponent implements OnInit {
       console.log(response);
       sessionStorage.setItem("custId",customerBody.custId)
       sessionStorage.setItem("isLoggedIn",`${this.loggedIn}`)
-      this._router.navigate(["getInfo"])
+      this.storeUserInfo(customerBody.custId);
 
+      //storing custName
+      // this.custNameOnLogin = sessionStorage.getItem("custName")
+      // console.log(this.custNameOnLogin)
+      // console.log(sessionStorage.getItem("custName"))
+
+      this._router.navigate(["getInfo"])
+      console.log("Inside getInfo : "+sessionStorage.getItem("custId"))
       }, err => {
         this.err = err;
         console.log(this.err.error.message);
         this._router.navigate(["login"])
         this.customer.reset()
       })
+    }
+
+    accountDetsOnLogin : any
+    storeUserInfo(id : any){
+    this.service.getAccountDetails(id).subscribe(
+      (response: any) => {
+        sessionStorage.setItem("custName",response.custName)
+        console.log("StoreInfo name: "+sessionStorage.getItem("custName"))
+      }, err => {
+        this.err = err;
+      }
+    )
     }
 }

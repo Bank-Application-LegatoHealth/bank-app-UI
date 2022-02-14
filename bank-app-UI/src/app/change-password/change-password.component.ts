@@ -11,10 +11,12 @@ import { AccountDetailsComponent } from '../account-details/account-details.comp
 })
 export class ChangePasswordComponent implements OnInit {
 
-
+  accountNameOnLogin:any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "none";
+
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
   }
 
 

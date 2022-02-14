@@ -19,9 +19,13 @@ export class TransferComponent implements OnInit {
   constructor(public fb: FormBuilder, private router: Router, private service: BankService) {
 
   }
+
+  accountNameOnLogin:any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "none";
+
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
   }
 
 

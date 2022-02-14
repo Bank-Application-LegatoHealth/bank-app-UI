@@ -18,19 +18,20 @@ export class AccountDetailsComponent implements OnInit {
   }
   accountInfoModel: AccountInfoModel = new AccountInfoModel();
   showPrice: Boolean = true;
+  accountNameOnLogin:any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "none";
     let afterLoggedInHeader = <HTMLInputElement>document.getElementById("after-login-header");
     afterLoggedInHeader.style.display = "block";
-
+    
     //navigate un-authorized user to login page
     this.custNo = sessionStorage.getItem("custId")
     if (this.custNo == null){
       this.router.navigate(["unAuthUser"])
     }
     this.getAccountInfo()
-
+    
   }
   showBalence: boolean = true;
   hideBalence: boolean = true;
@@ -49,7 +50,7 @@ export class AccountDetailsComponent implements OnInit {
         this.accountBalance = this.accountInfo.avlbalance.toString().replace(new RegExp("[0-9]", "g"), "X");
         this.accountNumber = this.accountInfo.accNumber.toString().replace(new RegExp("[0-9]", "g"), "X");
         this.accountInfoModel = response;
-
+        this.accountNameOnLogin = sessionStorage.getItem("custName")
       }, err => {
         this.err = err;
       }
@@ -84,24 +85,38 @@ export class AccountDetailsComponent implements OnInit {
   transactionClicked() {
     console.log(this.route);
     console.log("data clicked")
-    // this.router.navigate(["transDetails"]);
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this.router.navigate(['transDetails']);
+  
+    
 
   }
 
   getInfo() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this.router.navigate(["getInfo"])
+    
   }
 
   transfer() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this.router.navigate(["transfer"])
+    
   }
 
   changePassword() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this.router.navigate(["changePassword"])
+    
   }
   goToAccountDetails() {
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     this.router.navigate(["accountInfo"])
+    
   }
 
 

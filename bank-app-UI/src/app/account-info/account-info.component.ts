@@ -13,13 +13,15 @@ export class AccountInfoComponent implements OnInit {
   constructor(private service: BankService, private client: HttpClient,private router:Router) { }
   custNo:any;
   
-
+  accountNameOnLogin:any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "none";
     let afterLoggedInHeader = <HTMLInputElement>document.getElementById("after-login-header");
     afterLoggedInHeader.style.display = "block";
     this.custNo = sessionStorage.getItem("custId")
+    
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
     if (this.custNo == null){
       this.router.navigate(["unAuthUser"])
     }
