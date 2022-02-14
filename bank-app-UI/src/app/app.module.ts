@@ -46,7 +46,8 @@ let routeConfig: Routes = [
     LogInComponent,
     InvestorsComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ChangePasswordComponent
 
   ],
   imports: [
