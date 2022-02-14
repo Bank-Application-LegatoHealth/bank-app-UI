@@ -46,19 +46,24 @@
       <ul class="nav-item">
         <img height="70px" width="140px" src="assets/images/bank-logo.png" />
       </ul>
+      <ul class="nav-item" style="left: 90%;transform: translatex(900%);">
+       
+      </ul>
       &nbsp;
       <ul id="menu-items"class="navbar-nav me-auto  navbar-center " >
         <li class="nav-item">
+          <img height="50px" width="60px"  src="assets/images/profile-logo.png" />
+          </li>
+          <li class="nav-item">
           <a id="customerName" class="nav-link nav-bar-contnet"
-            style="color: #000000;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;"></a>
+            style="color: #000000;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;">Hello! {{accountInfo.custName}}</a>
         </li>
       </ul>
-
     </div>
     <a routerLink="login" >
-      <button id ="login" type="submit" class="btn" 
+      <button id ="login" (click)="clearSessions()"type="submit" class="btn" 
       style="color: #ffffff;font-family:Verdana, Geneva, Tahoma, sans-serif ;
-      font-weight: bold;background-color: #000000;" ngClick >Log Out</button>
+      font-weight: bold;background-color: #000000;margin-bottom: 20px;" ngClick >Log Out</button>
     </a>
 
   </nav>
