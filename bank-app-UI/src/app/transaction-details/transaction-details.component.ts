@@ -65,6 +65,7 @@ export class TransactionDetailsComponent implements OnInit {
     console.log(this.transaction.controls["transType"].value)
     //Setting filterSet value based transShow value
     if(this.transaction.controls["transShow"].value == "showAll"){
+      this.displayTable = false;
       this.isFilterSet = false;
     }
     else{
@@ -74,6 +75,7 @@ export class TransactionDetailsComponent implements OnInit {
     this.optionValue = this.transaction.controls['transType'].value
 
     if(this.transaction.controls["transShow"].value == "showType"){
+      this.displayTable = false;
       if(this.optionValue.includes("Credit")){ // 1. CREDIT //2. DEBIT
         this.transType = "CREDIT"
       }else if(this.optionValue.includes("Debit")){
@@ -87,12 +89,13 @@ export class TransactionDetailsComponent implements OnInit {
     console.log("is filter set : "+this.isFilterSet)
     //Setting start and end date values based on radio buton
     if(showVal === "showDate"){
+      this.displayTable = false;
       this.startDate = this.transaction.controls["transFromDate"].value;
       this.endDate = this.transaction.controls["transToDate"].value;
       this.transType = null
     }
     else{
-
+      this.displayTable = false;
       this.startDate = null
       this.endDate = null
     }
