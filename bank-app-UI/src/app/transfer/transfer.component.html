@@ -33,6 +33,7 @@
       </div>
       <hr style="border: 1px solid red;margin-bottom: 20px; padding:0">
 
+
       <form [formGroup]="transferBody" (ngSubmit)="transferSubmit()" class="flex-c">
         <div class="input-box">
           <span class="label">Account No.</span>
@@ -93,7 +94,8 @@
           </div>
         </div>
 
-        <div class="overlay" *ngIf="err" [hidden]="isShow">
+
+        <div class="overlay" *ngIf="err" >
           <div class="popup">
             <p>{{err.error.message}}</p>
             <div class="text-right">
@@ -102,7 +104,8 @@
           </div>
         </div>
 
-        <div class="overlay" *ngIf="transferResponse" [hidden]="isShow">
+
+        <div class="overlay" *ngIf="transferResponse" >
           <div class="popup">
             <p>{{transferResponse.message}}</p>
             <div class="text-right">

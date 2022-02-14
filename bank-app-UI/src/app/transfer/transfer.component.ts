@@ -39,9 +39,8 @@ export class TransferComponent implements OnInit {
   err: any = undefined
   hideEle = false;
   hideBtn = true;
-  isShow = false;
-  transferSubmit(): void {
 
+  transferSubmit(): void {
     let detAccNo = this.transferBody.controls['detAccNo'].value;
     let custName = this.transferBody.controls['custName'].value;
     let ifsc = this.transferBody.controls['ifsc'].value;
@@ -61,13 +60,11 @@ export class TransferComponent implements OnInit {
     this.service.performTransaction(transferModel).subscribe(response => {
       this.transferResponse = response;
       console.log(response);
-      this.transferBody.reset()
       this.hideBtn = true;
       this.hideEle = false;
     }, err => {
       this.err = err;
       console.log(this.err.error.message);
-      this.transferBody.reset()
       this.hideBtn = true;
       this.hideEle = false;
     })
@@ -79,10 +76,10 @@ export class TransferComponent implements OnInit {
   }
 
   onSuccess() {
-    this.isShow = true;
+    this.router.navigate(["getInfo"])
   }
   onFailure() {
-    this.isShow = true;
+    this.router.navigate(["getInfo"])
   }
 
 
