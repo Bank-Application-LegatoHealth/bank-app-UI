@@ -14,6 +14,10 @@ export class LogInComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
+    beforeLoggedInHeader.style.display = "block";
+    let afterLoggedInHeader = <HTMLInputElement>document.getElementById("after-login-header");
+    afterLoggedInHeader.style.display = "none";
   }
 
   customer = this._builder.group({

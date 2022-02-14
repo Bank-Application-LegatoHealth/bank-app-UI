@@ -13,6 +13,6 @@ a {
 
   .navbar-center {    
               position: absolute;  
-                        left: 70%;  
-    
+                        left: 82%;  
+                        top:21px;
                         transform: translatex(-50%);        }
