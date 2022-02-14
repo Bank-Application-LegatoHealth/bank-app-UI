@@ -60,7 +60,7 @@ let routeConfig: Routes = [
     AccountDetailsComponent,
     AccountInfoComponent,
     UnauthorizedUserComponent
-    
+
   ],
   imports: [
     BrowserModule,
