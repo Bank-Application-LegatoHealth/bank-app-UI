@@ -23,90 +23,87 @@
         </div>
     </div>
 
-    <!-- <app-service-menu></app-service-menu> -->
     <div style="width:70rem" class="card">
-        <div class="card-body">
-            <div class="row" style=" padding:0">
-                <div class="col-12" style=" padding:0">
-                    <h5 style=" padding:0">TRANSACTION DETAILS</h5>
+        <div class="card-body"
+            style="font-weight:bold;color : #f16c1f;font-weight: 700;font-family:Verdana, Tahoma, sans-serif">
+            <div class="row" style="padding:0;font-size: 22px;">
+                <div class="col-12" >
+                    <p >TRANSACTION DETAILS</p>
                 </div>
             </div>
-            <hr style="border: 1px solid red;margin-bottom: 20px; padding:0">
+            <hr style="border: 1px ;color: #f16c1f;margin-bottom: 20px; padding:0">
             <form [formGroup]="transaction" class="flex-c">
                 <div class="row">
-                    <!-- <input type="radio" name="transShow" formControlName="transShow" value="showAll"
-                        (click)="disableDates()" checked="checked"> Show All
-                    <input type="radio" name="transShow" formControlName="transShow" value="showDate"
-                        (click)="enableDates()"> Transaction Date From
-                    <div *ngIf="isShowDateEnabled">
-                        <input id="fromDate" type="date" name="transFromDate" formControlName="transFromDate"
-                            (blur)="compareDates()">
-                        <label> To</label>
-                        <input id="toDate" type="date" name="transToDate" formControlName="transToDate"
-                            (blur)="compareDates()">
-                    </div>
-                    <input type="radio" name="transShow" formControlName="transShow" value="showType"
-                        (click)="disableDates()"> Show Type
 
-                    <select class="custom-select" (change)="changeTransactionType($event)" formControlName="transType">
-                        <option value="" disabled>Select transaction type</option>
-                        <option id="tType" *ngFor="let type of transactionType" [ngValue]="type">{{type}}</option>
-                    </select> -->
-                    
-                    <table class="table table-data-style" style="font-family:Verdana, Tahoma, sans-serif"
-                        >
+                    <table class="table table-data-style" style="font-size: 18px;font-weight :bold">
                         <tbody>
                             <tr>
-                                <td>
-                                    <input type="radio" name="transShow" formControlName="transShow" value="showAll"
-                                        (click)="disableDates()" checked="checked"> Show All
+                                <td colspan="1" class="text-start">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="padding-right:0" type="radio"
+                                            name="transShow" id="flexRadioDefault1" value="showAll"
+                                            formControlName="transShow" (click)="disableDates()" checked="">
+                                        <p>Show All</p>
+
+                                    </div>
                                 </td>
-                                <td colspan="2">
-                                    <input type="radio" name="transShow" formControlName="transShow" value="showType"
-                                        (click)="disableDates()"> Show Type
-                                    &nbsp;&nbsp;
+                                <td colspan="1" class="text-start">
+
+                                    <div class="form-check" style="margin-left:2px">
+                                        <input class="form-check-input" type="radio" name="transShow"
+                                            id="flexRadioDefault2" value="showType" formControlName="transShow"
+                                            (click)="disableDates()">Show Type
+
+                                    </div>
                                     <select class="custom-select" (change)="changeTransactionType($event)"
                                         formControlName="transType">
                                         <option value="" disabled>Transaction type</option>
                                         <option id="tType" *ngFor="let type of transactionType" [ngValue]="type">
                                             {{type}}</option>
                                     </select>
+
                                 </td>
-                                <td colspan="2" class="text-start">
-                                    <input type="radio" name="transShow" formControlName="transShow" value="showDate"
-                                        (click)="enableDates()"> Show By date
-                                        &nbsp;
-                               
+                                <td colspan="1" class="text-start">
+
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="transShow"
+                                            id="flexRadioDefault3" value="showDate" formControlName="transShow"
+                                            (click)="enableDates()">Show By Date
+
+                                    </div>
+                                    &nbsp;
+
                                     <div *ngIf="isShowDateEnabled">
+                                        <p>From</p>
                                         <input id="fromDate" type="date" name="transFromDate"
                                             formControlName="transFromDate" (blur)="compareDates()">
-                                            &nbsp;&nbsp;
-                                        <label> To</label>
-                                        &nbsp;&nbsp;
+
+                                        <p> To</p>
+
                                         <input id="toDate" type="date" name="transToDate" formControlName="transToDate"
                                             (blur)="compareDates()">
                                     </div>
                                 </td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
 
                     <div class="alert alert-danger" *ngIf="invalidDate">
                         {{errInvalidDate}}
                     </div>
-                    <!-- <div class="alert alert-danger" *ngIf="emptyDatesInvalid">
-                        {{emptyDatesMessage}}
-                    </div> -->
                     <!-- <div class="alert alert-danger" *ngIf="emptyDates">
-                        {{emptyDatesNotValid}}
+                        {{emptyDatesInvalid}}
                     </div> -->
 
                 </div>
                 <button class="transButton" type="button" (click)="getTransactions()">View Transactions</button>
+                <hr>
                 <div>
                     <div class="row">
-                        <table class="table table-data-style" style="font-family:Verdana, Tahoma, sans-serif"
+                        <table class="table table-data-style" style="font-size: 16px;font-weight :bold;font-family:Verdana, Tahoma, sans-serif"
                             *ngIf="displayTable">
                             <thead>
                                 <tr>
@@ -121,7 +118,6 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor='let trans of _transaction'>
-                                    <!-- <p>{{trans.value | json}}</p> -->
                                     <td>{{trans.transactionId}}</td>
                                     <td>{{trans.referenceNo}}</td>
                                     <td>{{trans.accountNum}}</td>
@@ -140,7 +136,8 @@
                     {{errorNoTrans.error.message}}
                 </div>
 
-                <button class="transButton" type="button" (click)="downloadExcel()" *ngIf="displayTable">Download statement</button>
+                <button class="transButton" type="button" (click)="downloadExcel()" *ngIf="displayTable">Download
+                    statement</button>
             </form>
         </div>
 
