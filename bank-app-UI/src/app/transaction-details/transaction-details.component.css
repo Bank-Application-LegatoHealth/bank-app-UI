@@ -127,3 +127,19 @@ td {
     color: #000000;
     font-weight: lighter;
 }
+
+
+.transButton {
+  width: 50%;
+                height: 40px;
+                margin: auto;
+                display: block;
+                color: #fff;
+                background-color: #f16c1f;
+                border-color: #f16c1f;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+                box-shadow: 0 2px 0 rgba(0, 0, 0, 0.035);
+                border-radius: 4px;
+                font-size: 14px;
+                cursor: pointer;
+}

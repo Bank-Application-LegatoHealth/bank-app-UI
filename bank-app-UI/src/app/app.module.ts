@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,10 @@ import { BankGuard } from './bank.guard';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AccountInfoModel } from './account-info-model';
+import { AccountInfoComponent } from './account-info/account-info.component';
+import { UnauthorizedUserComponent } from './unauthorized-user/unauthorized-user.component';
+
 
 let routeConfig: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +36,9 @@ let routeConfig: Routes = [
   { path: 'getInfo', component: AccountDetailsComponent },
   { path: 'transDetails', component: TransactionDetailsComponent }, 
   { path: 'transfer', component: TransferComponent },
-  { path: 'changePassword', component: ChangePasswordComponent }
+  { path: 'changePassword', component: ChangePasswordComponent },
+  { path: 'accountInfo', component: AccountInfoComponent },
+  { path: 'unAuthUser', component: UnauthorizedUserComponent }
 
 
 ]
@@ -47,7 +54,12 @@ let routeConfig: Routes = [
     InvestorsComponent,
     FooterComponent,
     HeaderComponent,
-    ChangePasswordComponent
+    TransactionDetailsComponent,
+    TransferComponent,
+    ChangePasswordComponent,
+    AccountDetailsComponent,
+    AccountInfoComponent,
+    UnauthorizedUserComponent
 
   ],
   imports: [
@@ -57,6 +69,7 @@ let routeConfig: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routeConfig),
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

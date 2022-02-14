@@ -1,0 +1,43 @@
+.card {
+    width: 20rem;
+
+    margin-top: 1em;
+    margin-left: 2em;
+    /* padding: 0.5em 0.5em 0.5em; */
+    border-radius: 1em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+ 
+  .card .card-title {
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+
+  .table-body{
+      color : #f16c1f;
+      font-weight: 700;
+      padding-top: 15px;
+      font-family:Verdana, Tahoma, sans-serif
+  }
+
+  .table-head{
+      font-weight: bolder;
+      padding: 10px;
+      font-family:Verdana, Tahoma, sans-serif
+  }
+ .table-lable-style{
+   font-weight: bold;
+   font-size: 20px;
+   padding-left: 100px;
+   color:  #f16c1f;
+   font-family:Verdana, Tahoma, sans-serif
+ }
+ .table-data-style{
+  font-weight: lighter;
+  color:  #000000;
+  padding-left: 45px;
+  padding-bottom: 12px;
+  font-weight: 500;
+  font-family:Verdana, Tahoma, sans-serif
+ }

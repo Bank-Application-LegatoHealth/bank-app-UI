@@ -4,10 +4,10 @@
             <table class="table table-hover">
                 <tbody>
                     <tr>
-                        <td class="table-head" style="font-weight:900" >SERVICES</td>
+                        <td class="table-head" style="font-weight:900">SERVICES</td>
                     </tr>
                     <tr>
-                        <td class="table-body" ><a  (click)="transactionClicked()">Transaction Details</a></td>
+                        <td class="table-body"><a (click)="transactionClicked()">Transaction Details</a></td>
                     </tr>
                     <tr>
                         <td class="table-body"><a (click)="transfer()">Transfer Money</a></td>
@@ -23,56 +23,128 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="card col-3">
-            <div class="card-body">
-                <p>Seema</p>
-                    <!-- <table class="table table-hover">
+    <!-- <app-service-menu></app-service-menu> -->
+    <div style="width:70rem" class="card">
+        <div class="card-body">
+            <div class="row" style=" padding:0">
+                <div class="col-12" style=" padding:0">
+                    <h5 style=" padding:0">TRANSACTION DETAILS</h5>
+                </div>
+            </div>
+            <hr style="border: 1px solid red;margin-bottom: 20px; padding:0">
+            <form [formGroup]="transaction" class="flex-c">
+                <div class="row">
+                    <!-- <input type="radio" name="transShow" formControlName="transShow" value="showAll"
+                        (click)="disableDates()" checked="checked"> Show All
+                    <input type="radio" name="transShow" formControlName="transShow" value="showDate"
+                        (click)="enableDates()"> Transaction Date From
+                    <div *ngIf="isShowDateEnabled">
+                        <input id="fromDate" type="date" name="transFromDate" formControlName="transFromDate"
+                            (blur)="compareDates()">
+                        <label> To</label>
+                        <input id="toDate" type="date" name="transToDate" formControlName="transToDate"
+                            (blur)="compareDates()">
+                    </div>
+                    <input type="radio" name="transShow" formControlName="transShow" value="showType"
+                        (click)="disableDates()"> Show Type
+
+                    <select class="custom-select" (change)="changeTransactionType($event)" formControlName="transType">
+                        <option value="" disabled>Select transaction type</option>
+                        <option id="tType" *ngFor="let type of transactionType" [ngValue]="type">{{type}}</option>
+                    </select> -->
+                    
+                    <table class="table table-data-style" style="font-family:Verdana, Tahoma, sans-serif"
+                        >
                         <tbody>
                             <tr>
-                                <td class="table-head" style="font-weight:900">TRANSACTION DETAILS</td>
-                            </tr>
-                            <tr>
-                                <td class="table-body">
-                                    <input id="transDate" type="radio" value="transDate" name="radiogroup"
-                                        formControlName="radiogroup">
-                                    <label for="from">Transaction Date From</label>
+                                <td>
+                                    <input type="radio" name="transShow" formControlName="transShow" value="showAll"
+                                        (click)="disableDates()" checked="checked"> Show All
                                 </td>
-                                <td class="table-body">
-                                    <input id="transFromDate" type="date" value="transFromDate" name="Date"
-                                        formControlName="fromDate" >
-                                    <label for="to">To</label>
-                                    <input id="transToDate" type="date" value="transToDate" name="Date"
-                                        formControlName="toDate">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="table-body">
-                                    <input type="radio" name="radiogroup" formControlName="radiogroup"> Transactions Type
-                                    <select (change)="changeTransType($event)" formControlName="transType" class="form-control">
-                                        <option value="" disabled>Select Transaction Type</option>
-                                        <option *ngFor="let tType of transactionType" [ngValue]="tType">
-                                            {{tType}}
-                                        </option>
+                                <td colspan="2">
+                                    <input type="radio" name="transShow" formControlName="transShow" value="showType"
+                                        (click)="disableDates()"> Show Type
+                                    &nbsp;&nbsp;
+                                    <select class="custom-select" (change)="changeTransactionType($event)"
+                                        formControlName="transType">
+                                        <option value="" disabled>Transaction type</option>
+                                        <option id="tType" *ngFor="let type of transactionType" [ngValue]="type">
+                                            {{type}}</option>
                                     </select>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td class="table-body">
-                                    <input type="radio" name="radiogroup" formControlName="radiogroup" checked> Show All
+                                <td colspan="2" class="text-start">
+                                    <input type="radio" name="transShow" formControlName="transShow" value="showDate"
+                                        (click)="enableDates()"> Show By date
+                                        &nbsp;
+                               
+                                    <div *ngIf="isShowDateEnabled">
+                                        <input id="fromDate" type="date" name="transFromDate"
+                                            formControlName="transFromDate" (blur)="compareDates()">
+                                            &nbsp;&nbsp;
+                                        <label> To</label>
+                                        &nbsp;&nbsp;
+                                        <input id="toDate" type="date" name="transToDate" formControlName="transToDate"
+                                            (blur)="compareDates()">
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="table-body">
-                                    <input class="btn" style="padding-left:25px;padding-right:25px"
-                                         type="submit" value="View Statement">
-                                </td>
-                            </tr>
+                            
                         </tbody>
-                    </table> -->
-                
-            </div>
-        </div>
-        </div>
+                    </table>
+
+                    <div class="alert alert-danger" *ngIf="invalidDate">
+                        {{errInvalidDate}}
+                    </div>
+                    <!-- <div class="alert alert-danger" *ngIf="emptyDatesInvalid">
+                        {{emptyDatesMessage}}
+                    </div> -->
+                    <!-- <div class="alert alert-danger" *ngIf="emptyDates">
+                        {{emptyDatesNotValid}}
+                    </div> -->
+
+                </div>
+                <button class="transButton" type="button" (click)="getTransactions()">View Transactions</button>
+                <div>
+                    <div class="row">
+                        <table class="table table-data-style" style="font-family:Verdana, Tahoma, sans-serif"
+                            *ngIf="displayTable">
+                            <thead>
+                                <tr>
+                                    <th>Transaction #</th>
+                                    <th>Reference #</th>
+                                    <th>Account #</th>
+                                    <th>Transaction Type</th>
+                                    <th>Amount</th>
+                                    <th>Transaction Date</th>
+                                    <th>IFSC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let trans of _transaction'>
+                                    <!-- <p>{{trans.value | json}}</p> -->
+                                    <td>{{trans.transactionId}}</td>
+                                    <td>{{trans.referenceNo}}</td>
+                                    <td>{{trans.accountNum}}</td>
+                                    <td>{{trans.transactionType}}</td>
+                                    <td>{{trans.amount}}</td>
+                                    <td>{{trans.transactionDateTime}}</td>
+                                    <td>{{trans.ifsc}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="alert alert-danger" *ngIf="errorNoTrans">
+                    {{errorNoTrans.error.message}}
+                </div>
+
+                <button class="transButton" type="button" (click)="downloadExcel()" *ngIf="displayTable">Download statement</button>
+            </form>
         </div>
 
+    </div>
+
+
+</div>
