@@ -1,15 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.css';
 
-.accName{
+
+  .accName{
     color: #f16c1f;
     font-family:Verdana,Tahoma, sans-serif ;
     font-weight: bold;
     position: absolute;  
-    left: 38%;  
-    top:30px;
-    transform: translatex(-50%);
-    /* text-align: right; */
+     left: 130%;  
+     top:35px;
+     transform: translatex(-50%); 
   }
 
 

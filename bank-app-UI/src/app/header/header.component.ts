@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
   }
   clearSessions(){
     sessionStorage.clear()
+    this.router.navigate(['login']);
   }
 
   reloadComponent() {

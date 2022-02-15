@@ -1,45 +1,65 @@
 
 <!-- icons  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-
-<body>
-  <div class=" flex-r container">
-    <div class="flex-r login-wrapper">
-      <div class="login-text">
-          <div style="display: flex;justify-content: center;">
-            <img height="65px" width="110px" src="assets/images/bank-logo.png" />
+<div class="row">
+  <div class="col-7">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- ngfor loop using get dynamic value and ngclass for add acive class -->
+        <div class="carousel-item" *ngFor="let result of data; let i = index" [ngClass]="{'active': i === 1}">
+          <img style="height: 440px; width: 1700px;" src={{result.img}} title={{result.title}} />
         </div>
-        <form [formGroup]= "customer" (ngSubmit) ="loginSubmit()" class="flex-c" >
-          <div class="input-box">
-            <span class="label">Customer ID</span>
-            <div class=" flex-r input">
-              <input type="number" formControlName="custId" placeholder="Enter your customer ID">
-              <i class="fas fa-at"></i>
-            </div>
-            <div class = "alert alert-danger" [hidden]="customer.controls['custId'].valid || customer.controls['custId'].pristine" >
-                Enter valid customer id
-            </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="col-5" >
+    <div class=" flex-r container" style="background-color:#ccc;">
+      <div class="flex-r login-wrapper">
+        <div class="login-text">
+            <div style="display: flex;justify-content: center;">
+              <img height="65px" width="110px" src="assets/images/bank-logo.png" />
           </div>
-
-          <div class="input-box">
-            <span class="label">Password</span>
-            <div class="flex-r input">
-              <input type="password" formControlName="password"  placeholder="Enter your login passsword" >
-              <i class="fas fa-lock"></i>
+          <form [formGroup]= "customer" (ngSubmit) ="loginSubmit()" class="flex-c" >
+            <div class="input-box">
+              <span class="label">Customer ID</span>
+              <div class=" flex-r input">
+                <input type="number" formControlName="custId" placeholder="Enter your customer ID">
+                <i class="fas fa-at"></i>
+              </div>
+              <div class = "alert alert-danger" [hidden]="customer.controls['custId'].valid || customer.controls['custId'].pristine" >
+                  Enter valid customer id
+              </div>
             </div>
-            <div class = "alert alert-danger" [hidden]="customer.controls['password'].valid || customer.controls['password'].pristine" >
-                Password must be min 8 and include 1 special character,1 number,1 capital letter
+  
+            <div class="input-box">
+              <span class="label">Password</span>
+              <div class="flex-r input">
+                <input type="password" formControlName="password"  placeholder="Enter your login passsword" >
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class = "alert alert-danger" [hidden]="customer.controls['password'].valid || customer.controls['password'].pristine" >
+                  Password must be min 8 and include 1 special character,1 number,1 capital letter
+              </div>
             </div>
+            <div *ngIf ="err" class ="text-danger">
+              {{err.error.message}}
           </div>
-          <div *ngIf ="err" class ="text-danger">
-            {{err.error.message}}
+            <div  class="button-center"style="display:flex;">
+              <input class="btn" style="padding-left:25px;padding-right:25px" [disabled] = "customer.invalid" type="submit" value="Log In"
+              >
+          </div>
+          </form>
         </div>
-          <div  class="button-center"style="display:flex;">
-            <input class="btn" style="padding-left:25px;padding-right:25px" [disabled] = "customer.invalid" type="submit" value="Log In"
-            >
-        </div>
-        </form>
       </div>
     </div>
   </div>
-</body>
+</div>
+  

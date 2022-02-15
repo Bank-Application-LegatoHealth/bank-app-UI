@@ -30,7 +30,9 @@ export class AccountDetailsComponent implements OnInit {
     if (this.custNo == null){
       this.router.navigate(["unAuthUser"])
     }
+    
     this.getAccountInfo()
+
     
   }
   showBalence: boolean = true;
@@ -47,10 +49,11 @@ export class AccountDetailsComponent implements OnInit {
     this.service.getAccountDetails(sessionStorage.getItem("custId")).subscribe(
       (response: any) => {
         this.accountInfo = response;
+        this.accountNameOnLogin = sessionStorage.getItem("custName")
         this.accountBalance = this.accountInfo.avlbalance.toString().replace(new RegExp("[0-9]", "g"), "X");
         this.accountNumber = this.accountInfo.accNumber.toString().replace(new RegExp("[0-9]", "g"), "X");
         this.accountInfoModel = response;
-        this.accountNameOnLogin = sessionStorage.getItem("custName")
+        
       }, err => {
         this.err = err;
       }
