@@ -21,6 +21,10 @@ export class LogInComponent implements OnInit {
     let afterLoggedInHeader = <HTMLInputElement>document.getElementById("after-login-header");
     afterLoggedInHeader.style.display = "none";
   }
+  data = [
+    { img: "assets/images/login1.jpg", title: "" },
+    { img: "assets/images/login6.jpg", title: "" },
+  ];
 
   customer = this._builder.group({
     custId : ['',Validators.compose([Validators.required,Validators.pattern('(?=.*[0-9]).{6,}')])],

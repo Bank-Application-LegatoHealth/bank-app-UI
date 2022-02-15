@@ -11,10 +11,9 @@
           <a routerLink="" class="nav-link nav-bar-contnet"
             style="color: #000000;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;">Home</a>
         </li>
-        &nbsp; &nbsp; &nbsp;
         <li class="nav-item">
           <a routerLink="aboutUs" class="nav-link nav-bar-contnet"
-            style="color: #000000;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;"> About Us</a>
+            style="color: #000000;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;"> About&nbsp;Us</a>
         </li>
         &nbsp; &nbsp; &nbsp;
         <li class="nav-item">
@@ -24,7 +23,7 @@
         &nbsp; &nbsp; &nbsp;
         <li class="nav-item">
           <a routerLink="contactUs" class="nav-link nav-bar-contnet"
-            style="color: #000000;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;">Contact Us</a>
+            style="color: #000000;font-family:Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;">Contact&nbsp;Us</a>
         </li>
       </ul>
 
@@ -62,10 +61,20 @@
         </li> -->
       </ul>
     </div>
-    <a routerLink="login" >
+    <!-- <a routerLink="login" >
       <button id ="login" (click)="clearSessions()"type="submit" class="btn" 
       style="color: #ffffff;font-family:Verdana, Geneva, Tahoma, sans-serif ;
       font-weight: bold;background-color: #000000;margin-bottom: 20px;" ngClick >Log Out</button>
+    </a> -->
+    <!-- <a class="btn" id ="login" style="color: #ffffff;font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-weight: bold;background-color: #000000;margin-bottom: 20px;" (click)="clearSessions()" routerLink="login" >
+      Log Out
+    </a> -->
+
+    <a  >
+      <button id ="login"  type="submit" class="btn" 
+      style="color: #ffffff;font-family:Verdana, Geneva, Tahoma, sans-serif ;
+      font-weight: bold;background-color: #000000;" (click)="clearSessions()"  >Log Out</button>
     </a>
 
   </nav>

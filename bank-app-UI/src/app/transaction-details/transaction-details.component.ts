@@ -18,16 +18,29 @@ export class TransactionDetailsComponent implements OnInit {
   }
 
   accountNameOnLogin:any
+  custNo :any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "none";
+    this.accountNameOnLogin = sessionStorage.getItem("custName")
+    //navigate un-authorized user to login page
+    this.custNo = sessionStorage.getItem("custId")
+    if (this.custNo == null){
+      this._router.navigate(["unAuthUser"])
+    }
+    
   }
   transaction = this._builder.group({
     transShow: ['', []],
     transFromDate: ['', [Validators.required]],
     transToDate: ['', [Validators.required]],
     transType: ['', [Validators.required]]
+
+    
   })
+
+
+
 
   fromDate = new Date();
   toDate = new Date();

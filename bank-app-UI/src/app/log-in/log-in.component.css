@@ -22,17 +22,24 @@
 
 .container {
   width: 100%;
-  min-height: 100vh;
-  padding: 20px 10px;
-  background: #e5e5e5;
+  min-height: 80vh;
+  /* padding: 20px 10px; */
+  background: white;
+}
+.carousel{
+  margin-top:30px;
+  width: 100%;
+  height: 100vh;
+  /* padding: 20px 10px; */
 }
 
 .login-text {
-  background-color: #f6f6f6;
+  background-color: white;
   min-width: 500px;
-  min-height: 400px;
+  min-height: 450px;
   border-radius: 10px;
   padding: 10px 20px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -120,3 +127,18 @@ input {
     position: relative;  
      left: 50%;  
 transform: translatex(-50%);        }
+
+.btn {
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 10px 15px;
+  background: #f16c1f;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  transition: all 0.3s linear;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}

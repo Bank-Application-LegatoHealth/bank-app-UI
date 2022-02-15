@@ -12,11 +12,17 @@ import { AccountDetailsComponent } from '../account-details/account-details.comp
 export class ChangePasswordComponent implements OnInit {
 
   accountNameOnLogin:any
+  custNo :any
   ngOnInit(): void {
     let beforeLoggedInHeader = <HTMLInputElement>document.getElementById("before-login-header");
     beforeLoggedInHeader.style.display = "none";
 
     this.accountNameOnLogin = sessionStorage.getItem("custName")
+    //navigate un-authorized user to login page
+    this.custNo = sessionStorage.getItem("custId")
+    if (this.custNo == null){
+      this.router.navigate(["unAuthUser"])
+    }
   }
 
 
@@ -27,6 +33,7 @@ export class ChangePasswordComponent implements OnInit {
   displayTable : boolean = false;
 
   transactionClicked(){
+
     this.router.navigate(["transDetails"])
   }
 
